@@ -1,6 +1,19 @@
 import Adapt: adapt
 
+"""
+    children(x)
+
+    Returns the direct children of the given tree-like value `x`.
+
+"""
 children(x) = ()
+
+"""
+    mapchildren(f, x)
+
+    Returns a value similar to `x`, but whose children have been transformed by
+    the function `f`.
+"""
 mapchildren(f, x) = x
 
 children(x::Tuple) = x
@@ -33,6 +46,11 @@ function prefor(f, x; seen = OSet())
   return
 end
 
+"""
+    params(m)
+
+    Returns an array of all independant parameters in the given model `m`.
+"""
 function params(m)
   ps = []
   prefor(p ->
